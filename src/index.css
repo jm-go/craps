@@ -1,4 +1,14 @@
 :root {
+  --color-bg-start: #0f3d2e;
+  --color-bg-mid: #1b5e48;
+  --color-bg-end: #2c7a61;
+
+  --color-text-primary: #ffffff;
+
+  --color-button-bg: #1a1a1a;
+  --color-button-text: #ffffff;
+  --color-button-hover-border: #ffffff;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -16,12 +26,12 @@ body {
   width: 100%;
   background: linear-gradient(
     135deg,
-    #0f3d2e 0%,
-    #1b5e48 40%,
-    #2c7a61 100%
+    var(--color-bg-start) 0%,
+    var(--color-bg-mid) 40%,
+    var(--color-bg-end) 100%
   );
   background-attachment: fixed;
-  color: #ffffff;
+  color: var(--color-text-primary);
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
     sans-serif;
 }

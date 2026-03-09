@@ -21,12 +21,12 @@
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
-  color: #ffffff;
+  background-color: var(--color-button-bg);
+  color: var(--color-button-text);
   cursor: pointer;
-  transition: border-color 0.25s,
+  transition: border-color 0.25s;
 }
 
 .primary-button:hover {
-  border-color: #ffffff;
+  border-color: var(--color-button-hover-border);
 }
