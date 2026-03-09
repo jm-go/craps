@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './GameCard.css'
+import { CiCircleInfo } from "react-icons/ci";
 
 type CardView = 'welcome' | 'instructions'
 
@@ -13,13 +14,12 @@ export const GameCard = () => {
   return (
     <section className="game-card">
       <button
-        type="button"
         className="game-card__info-button"
-        aria-label="How to play"
-        title="How to play"
         onClick={toggleInstructions}
+        title="How to play"
+        aria-label="How to play"
       >
-        i
+        <CiCircleInfo />
       </button>
 
       {view === 'welcome' ? (
