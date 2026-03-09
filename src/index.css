@@ -1,19 +1,6 @@
+@import './styles/colours.css';
+
 :root {
-  --color-bg-top: #ffffff;
-  --color-bg-mid: #eef5dc;
-  --color-bg-bottom: #d9ff4d;
-
-  --color-card-bg: rgba(255, 255, 255, 0.88);
-
-  --color-text-primary: #1f1f1f;
-  --color-text-secondary: #4f4f4f;
-  --color-text-body: #2f2f2f;
-
-  --color-button-bg: #ffffff;
-  --color-button-text: #7a7a7a;
-
-  --color-border-soft: rgba(31, 31, 31, 0.15);
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
