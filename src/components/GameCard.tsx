@@ -3,7 +3,7 @@ import { CiCircleInfo } from 'react-icons/ci'
 import { WelcomeView } from './WelcomeView'
 import { SetupView } from './SetupView'
 import { PlayView } from './PlayView'
-import type { GameStats } from '../types'
+import type { GameStats } from '../types/types'
 import './GameCard.css'
 
 type ScreenView = 'welcome' | 'setup' | 'play'
