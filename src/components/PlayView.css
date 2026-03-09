@@ -1,0 +1,106 @@
+.play-view {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.play-view__title {
+  margin: 0;
+  font-size: clamp(2.2rem, 6vw, 3.2rem);
+  line-height: 1;
+  letter-spacing: 0.08em;
+  font-weight: 900;
+  color: var(--color-text-primary);
+}
+
+.play-view__rounds {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+}
+
+.play-view__rounds-count {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-left: 0.25rem;
+}
+
+.play-view__point-badge {
+  background: var(--color-point-badge-bg);
+  border: 1px solid var(--color-point-badge-border);
+  border-radius: 999px;
+  padding: 0.3rem 1rem;
+  font-size: 0.85rem;
+  color: var(--color-text-primary);
+}
+
+.play-view__result {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 0.3rem 1.4rem;
+  border-radius: 999px;
+}
+
+.play-view__result--won {
+  color: var(--color-win);
+  background: var(--color-win-bg);
+}
+
+.play-view__result--lost {
+  color: var(--color-lose);
+  background: var(--color-lose-bg);
+}
+
+.play-view__dice {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0;
+}
+
+.play-view__die {
+  width: 90px;
+  height: 90px;
+  border-radius: 16px;
+  transition: opacity 0.25s ease;
+  filter: drop-shadow(0 4px 10px var(--shadow-color-strong));
+}
+
+.play-view__die--idle {
+  opacity: 0.35;
+}
+
+@keyframes dice-shake {
+  0%   { transform: rotate(0deg)   scale(1);    }
+  20%  { transform: rotate(-12deg) scale(1.08); }
+  40%  { transform: rotate(12deg)  scale(1.08); }
+  60%  { transform: rotate(-6deg)  scale(1.04); }
+  80%  { transform: rotate(6deg)   scale(1.04); }
+  100% { transform: rotate(0deg)   scale(1);    }
+}
+
+.play-view__dice--rolling .play-view__die {
+  animation: dice-shake 0.35s ease-in-out;
+}
+
+.play-view__action-button {
+  width: min(100%, 14rem);
+}
+
+.play-view__sum {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+}
+
+.play-view__sum-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-left: 0.4rem;
+}
