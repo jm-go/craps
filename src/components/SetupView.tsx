@@ -7,7 +7,7 @@ type SetupViewProps = {
 
 const GAME_TITLE = 'CRAPS'
 const SETUP_SUBTITLE = 'Choose no. of rounds'
-const CONTINUE_BUTTON_TEXT = 'CONTINUE'
+const CONTINUE_BUTTON_TEXT = 'START'
 const MIN_GAMES = 1
 const MAX_GAMES = 15
 const DEFAULT_GAME_COUNT = 5

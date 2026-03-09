@@ -1,18 +1,17 @@
 import { useState } from 'react'
 import { CiCircleInfo } from 'react-icons/ci'
-import { WelcomeView } from './WelcomeView'
 import { SetupView } from './SetupView'
 import { PlayView } from './PlayView'
 import type { GameStats } from '../types/types'
 import './GameCard.css'
 
-type ScreenView = 'welcome' | 'setup' | 'play'
+type ScreenView = 'setup' | 'play'
 type OverlayView = 'closed' | 'instructions'
 
 const INFO_LABEL = 'How to play'
 
 export const GameCard = () => {
-  const [screenView, setScreenView] = useState<ScreenView>('welcome')
+  const [screenView, setScreenView] = useState<ScreenView>('setup')
   const [overlayView, setOverlayView] = useState<OverlayView>('closed')
   const [gameCount, setGameCount] = useState(5)
 
@@ -20,11 +19,6 @@ export const GameCard = () => {
     setOverlayView((prevView) =>
       prevView === 'closed' ? 'instructions' : 'closed'
     )
-  }
-
-  const handlePlay = () => {
-    setOverlayView('closed')
-    setScreenView('setup')
   }
 
   const handleStart = (count: number) => {
@@ -76,7 +70,6 @@ export const GameCard = () => {
           </>
         ) : (
           <>
-            {screenView === 'welcome' && <WelcomeView onPlay={handlePlay} />}
             {screenView === 'setup' && <SetupView onStart={handleStart} />}
             {screenView === 'play' && <PlayView totalGames={gameCount} onFinish={handleFinish} />}
           </>
