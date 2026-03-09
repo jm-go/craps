@@ -1,58 +1,76 @@
 import { useState } from 'react'
+import { CiCircleInfo } from 'react-icons/ci'
+import { WelcomeView } from './WelcomeView'
+import { SetupView } from './SetupView'
 import './GameCard.css'
-import { CiCircleInfo } from "react-icons/ci";
 
-type CardView = 'welcome' | 'instructions'
+type ScreenView = 'welcome' | 'setup'
+type OverlayView = 'closed' | 'instructions'
+
+const INFO_LABEL = 'How to play'
 
 export const GameCard = () => {
-  const [view, setView] = useState<CardView>('welcome')
+  const [screenView, setScreenView] = useState<ScreenView>('welcome')
+  const [overlayView, setOverlayView] = useState<OverlayView>('closed')
 
   const toggleInstructions = () => {
-    setView((prev) => (prev === 'welcome' ? 'instructions' : 'welcome'))
+    setOverlayView((prevView) =>
+      prevView === 'closed' ? 'instructions' : 'closed'
+    )
   }
+
+  const handlePlay = () => {
+    setOverlayView('closed')
+    setScreenView('setup')
+  }
+
+  const handleStart = (gameCount: number) => {
+    console.log('Starting simulation with games:', gameCount)
+  }
+
+  const isInstructionsOpen = overlayView === 'instructions'
 
   return (
     <section className="game-card">
       <button
+        type="button"
         className="game-card__info-button"
         onClick={toggleInstructions}
-        title="How to play"
-        aria-label="How to play"
+        title={INFO_LABEL}
+        aria-label={INFO_LABEL}
       >
         <CiCircleInfo />
       </button>
 
-      {view === 'welcome' ? (
-        <div className="game-card__content">
-          <p className="game-card__eyebrow">Welcome to</p>
-          <h1 className="game-card__title">CRAPS</h1>
+      <div className="game-card__content">
+        {isInstructionsOpen ? (
+          <>
+            <h2 className="game-card__instructions-title">{INFO_LABEL}</h2>
 
-          <button type="button" className="primary-button">
-            PLAY
-          </button>
-        </div>
-      ) : (
-        <div className="game-card__content">
-          <h2 className="game-card__instructions-title">How to play</h2>
+            <div className="game-card__instructions">
+              <p>Each game starts with a come-out roll using two dice.</p>
 
-          <div className="game-card__instructions">
-            <p>Each game starts with a come-out roll using two dice.</p>
+              <p>
+                If the total is <strong>7</strong> or <strong>11</strong>, the
+                player wins immediately. If the total is <strong>2</strong>,{' '}
+                <strong>3</strong>, or <strong>12</strong>, the player loses
+                immediately.
+              </p>
 
-            <p>
-              If the total is <strong>7</strong> or <strong>11</strong>, the
-              player wins immediately. If the total is <strong>2</strong>,
-              <strong>3</strong>, or <strong>12</strong>, the player loses
-              immediately.
-            </p>
-
-            <p>
-              Any other total becomes the <strong>point</strong>. The player
-              continues rolling until they either roll the same point again to
-              win or roll a <strong>7</strong> to lose.
-            </p>
-          </div>
-        </div>
-      )}
+              <p>
+                Any other total becomes the <strong>point</strong>. The player
+                continues rolling until they either roll the same point again to
+                win or roll a <strong>7</strong> to lose.
+              </p>
+            </div>
+          </>
+        ) : (
+          <>
+            {screenView === 'welcome' && <WelcomeView onPlay={handlePlay} />}
+            {screenView === 'setup' && <SetupView onStart={handleStart} />}
+          </>
+        )}
+      </div>
     </section>
   )
 }

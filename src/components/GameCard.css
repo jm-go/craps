@@ -4,13 +4,10 @@
   min-height: 24rem;
   padding: 2rem 1.5rem;
   border-radius: 1.5rem;
-
   background: var(--color-card-bg);
-
   box-shadow:
     0 0.5rem 1.25rem rgba(31, 31, 31, 0.08),
     0 1.25rem 2.5rem rgba(31, 31, 31, 0.08);
-
   backdrop-filter: blur(0.25rem);
 }
 
@@ -21,45 +18,21 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
-
   text-align: center;
-}
-
-.game-card__eyebrow {
-  margin: 0;
-
-  font-size: 1rem;
-
-  color: var(--color-text-secondary);
-}
-
-.game-card__title {
-  margin: 0;
-
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  line-height: 1;
-  letter-spacing: 0.08em;
-
-  color: var(--color-text-primary);
 }
 
 .game-card__info-button {
   position: absolute;
   top: 1rem;
   right: 1rem;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: none;
   border: none;
   padding: 0;
-
   color: var(--color-text-secondary);
-
   cursor: pointer;
-
   transition:
     transform 0.2s ease,
     color 0.2s ease;
@@ -81,9 +54,7 @@
 
 .game-card__instructions-title {
   margin: 0;
-
   font-size: 1.5rem;
-
   color: var(--color-text-primary);
 }
 
@@ -91,9 +62,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-
   text-align: left;
-
   color: var(--color-text-body);
 }
 
@@ -103,7 +72,6 @@
 }
 
 @media (max-width: 480px) {
-
   .game-card {
     min-height: 22rem;
     padding: 1.5rem 1rem;
@@ -118,5 +86,4 @@
     top: 0.8rem;
     right: 0.8rem;
   }
-
 }
