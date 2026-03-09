@@ -1,10 +1,10 @@
 import './App.css'
+import { GameCard } from './components/GameCard'
 
 function App() {
   return (
     <div className="app">
-      <h2>Welcome to Craps</h2>
-      <button className="primary-button">PLAY</button>
+      <GameCard />
     </div>
   )
 }
