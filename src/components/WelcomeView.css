@@ -1,0 +1,13 @@
+.welcome-view__eyebrow {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+}
+
+.welcome-view__title {
+  margin: 0;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  line-height: 1;
+  letter-spacing: 0.08em;
+  color: var(--color-text-primary);
+}
