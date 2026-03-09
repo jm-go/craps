@@ -1,4 +1,3 @@
-import type { ChangeEvent } from 'react'
 import { useState } from 'react'
 import './SetupView.css'
 
@@ -6,61 +5,56 @@ type SetupViewProps = {
   onStart: (gameCount: number) => void
 }
 
-const SETUP_TITLE = 'How many games would you like to play?'
-const HELPER_TEXT = 'Enter a number between 1 and 15.'
-const START_BUTTON_TEXT = 'START'
+const GAME_TITLE = 'CRAPS'
+const SETUP_SUBTITLE = 'Choose no. of rounds'
+const CONTINUE_BUTTON_TEXT = 'CONTINUE'
 const MIN_GAMES = 1
 const MAX_GAMES = 15
-const DEFAULT_GAME_COUNT = '5'
+const DEFAULT_GAME_COUNT = 5
 
 export const SetupView = ({ onStart }: SetupViewProps) => {
-  const [gameCount, setGameCount] = useState(DEFAULT_GAME_COUNT)
+  const [count, setCount] = useState(DEFAULT_GAME_COUNT)
 
-  const numericValue = Number(gameCount)
-  const isValidGameCount =
-    Number.isInteger(numericValue) &&
-    numericValue >= MIN_GAMES &&
-    numericValue <= MAX_GAMES
-
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setGameCount(event.target.value)
-  }
+  const decrement = () => setCount(prev => Math.max(MIN_GAMES, prev - 1))
+  const increment = () => setCount(prev => Math.min(MAX_GAMES, prev + 1))
 
   const handleSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault()
-
-    if (!isValidGameCount) {
-      return
-    }
-
-    onStart(numericValue)
+    onStart(count)
   }
 
   return (
     <form className="setup-view" onSubmit={handleSubmit}>
-      <h2 className="setup-view__title">{SETUP_TITLE}</h2>
+      <h1 className="setup-view__title">{GAME_TITLE}</h1>
 
-      <p className="setup-view__helper">{HELPER_TEXT}</p>
+      <p className="setup-view__subtitle">{SETUP_SUBTITLE}</p>
 
-      <input
-        id="game-count"
-        name="game-count"
-        type="number"
-        min={MIN_GAMES}
-        max={MAX_GAMES}
-        step="1"
-        inputMode="numeric"
-        className="setup-view__input"
-        value={gameCount}
-        onChange={handleChange}
-      />
+      <div className="setup-view__stepper">
+        <button
+          type="button"
+          className="setup-view__step-btn"
+          onClick={decrement}
+          disabled={count <= MIN_GAMES}
+          aria-label="Decrease rounds"
+        >
+          −
+        </button>
 
-      <button
-        type="submit"
-        className="primary-button"
-        disabled={!isValidGameCount}
-      >
-        {START_BUTTON_TEXT}
+        <span className="setup-view__count">{count}</span>
+
+        <button
+          type="button"
+          className="setup-view__step-btn"
+          onClick={increment}
+          disabled={count >= MAX_GAMES}
+          aria-label="Increase rounds"
+        >
+          +
+        </button>
+      </div>
+
+      <button type="submit" className="primary-button setup-view__continue">
+        {CONTINUE_BUTTON_TEXT}
       </button>
     </form>
   )

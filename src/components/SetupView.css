@@ -3,45 +3,80 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .setup-view__title {
   margin: 0;
-  font-size: 1.5rem;
-  line-height: 1.3;
+  font-size: clamp(2.2rem, 6vw, 3.2rem);
+  line-height: 1;
+  letter-spacing: 0.08em;
+  font-weight: 900;
   color: var(--color-text-primary);
 }
 
-.setup-view__helper {
+.setup-view__subtitle {
   margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
   color: var(--color-text-secondary);
-  font-size: 0.95rem;
 }
 
-.setup-view__label {
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: var(--color-text-primary);
-}
-
-.setup-view__input {
-  width: min(100%, 12rem);
-  padding: 0.85rem 1rem;
-  border: 1px solid var(--color-border-soft);
-  border-radius: 14px;
+.setup-view__stepper {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
   background: var(--color-input-bg);
-  color: var(--color-text-primary);
-  font: inherit;
-  text-align: center;
+  border-radius: 16px;
+  padding: 0.6rem 1rem;
   box-shadow:
     0 8px 18px var(--shadow-color-soft),
     0 2px 6px var(--shadow-color-faint);
 }
 
-.setup-view__input:focus {
-  outline: none;
-  border-color: var(--color-accent);
+.setup-view__step-btn {
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  border: none;
+  background: var(--color-button-bg);
+  color: var(--color-button-text);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 2px 6px var(--shadow-color-soft);
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.setup-view__step-btn:hover:not(:disabled) {
+  transform: scale(1.1);
+}
+
+.setup-view__step-btn:active:not(:disabled) {
+  transform: scale(0.93);
+}
+
+.setup-view__step-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.setup-view__count {
+  min-width: 2.5rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.setup-view__continue {
+  width: min(100%, 14rem);
 }
 
 .primary-button:disabled {
