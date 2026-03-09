@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { rollDice, evaluateComeOut, evaluatePointRoll } from '../game-logic/craps'
-import type { GameStats } from '../types'
+import type { GameStats } from '../types/types'
 import './PlayView.css'
 
 import dice1Img from '../assets/DICE1.png'
