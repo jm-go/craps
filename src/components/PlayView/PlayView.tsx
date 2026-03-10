@@ -1,14 +1,14 @@
 import { useState } from 'react'
-import { rollDice, evaluateComeOut, evaluatePointRoll } from '../game-logic/craps'
-import type { GameStats } from '../types/types'
+import { rollDice, evaluateComeOut, evaluatePointRoll } from '../../game-logic/craps'
+import type { GameStats } from '../../types/types'
 import './PlayView.css'
 
-import dice1Img from '../assets/DICE1.png'
-import dice2Img from '../assets/DICE2.png'
-import dice3Img from '../assets/DICE3.png'
-import dice4Img from '../assets/DICE4.png'
-import dice5Img from '../assets/DICE5.png'
-import dice6Img from '../assets/DICE6.png'
+import dice1Img from '../../assets/DICE1.png'
+import dice2Img from '../../assets/DICE2.png'
+import dice3Img from '../../assets/DICE3.png'
+import dice4Img from '../../assets/DICE4.png'
+import dice5Img from '../../assets/DICE5.png'
+import dice6Img from '../../assets/DICE6.png'
 
 const DICE_IMAGES = [dice1Img, dice2Img, dice3Img, dice4Img, dice5Img, dice6Img]
 

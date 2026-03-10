@@ -1,4 +1,4 @@
-import type { GameStats } from '../types/types'
+import type { GameStats } from '../../types/types'
 import './ResultsView.css'
 
 type ResultsViewProps = {

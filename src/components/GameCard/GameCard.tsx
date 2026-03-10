@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { CiCircleInfo } from 'react-icons/ci'
-import { SetupView } from './SetupView'
-import { PlayView } from './PlayView'
-import { ResultsView } from './ResultsView'
-import { InstructionsView } from './InstructionsView'
-import type { GameStats } from '../types/types'
+import { SetupView } from '../SetupView'
+import { PlayView } from '../PlayView'
+import { ResultsView } from '../ResultsView'
+import { InstructionsView } from '../InstructionsView'
+import type { GameStats } from '../../types/types'
 import './GameCard.css'
 
 const SCREEN_VIEW = {
