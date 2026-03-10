@@ -28,6 +28,7 @@ export const PlayView = ({ totalGames, onFinish }: PlayViewProps) => {
   const [rollCount, setRollCount] = useState(0)
   const [lastResult, setLastResult] = useState<'won' | 'lost' | null>(null)
   const [isRolling, setIsRolling] = useState(false)
+  const [gameRolls, setGameRolls] = useState<number[]>([])
   const [stats, setStats] = useState<GameStats>({
     wins: 0,
     losses: 0,
@@ -47,6 +48,7 @@ export const PlayView = ({ totalGames, onFinish }: PlayViewProps) => {
     setDie1(d1)
     setDie2(d2)
     setRollCount(newRollCount)
+    setGameRolls(prev => [...prev, sum])
 
     if (phase === 'ready') {
       const result = evaluateComeOut(sum)
@@ -113,6 +115,7 @@ export const PlayView = ({ totalGames, onFinish }: PlayViewProps) => {
     setPoint(null)
     setRollCount(0)
     setLastResult(null)
+    setGameRolls([])
   }
 
   const isLastGame = currentGame >= totalGames
@@ -182,6 +185,12 @@ export const PlayView = ({ totalGames, onFinish }: PlayViewProps) => {
         >
           {isLastGame ? 'SEE RESULTS' : 'NEXT GAME'}
         </button>
+      )}
+
+      {gameRolls.length > 0 && (
+        <p className="play-view__roll-history">
+          Rolls history: {gameRolls.join(', ')}
+        </p>
       )}
 
     </div>
