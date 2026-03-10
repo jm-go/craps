@@ -1,20 +1,10 @@
 import type { GameStats } from "../../types/types";
+import { useCrapsStats } from "../../game-logic/useCrapsStats";
 import "./ResultsView.css";
 
 type ResultsViewProps = {
   stats: GameStats;
   onPlayAgain: () => void;
-};
-
-// TODO: Replace all hardcoded values below with values derived from `stats`
-const DISPLAY = {
-  wins: 3,
-  losses: 2,
-  avgRolls: 4.2,
-  highestRolls: 8,
-  lowestRolls: 1,
-  mostCommonRoll: 7,
-  avgWinPct: 60,
 };
 
 const WINS = "wins";
@@ -48,26 +38,27 @@ const StatTile = ({ label, value }: StatTileProps) => (
   </div>
 );
 
-export const ResultsView = ({ onPlayAgain }: ResultsViewProps) => {
+export const ResultsView = ({ stats, onPlayAgain }: ResultsViewProps) => {
+  const display = useCrapsStats(stats);
   return (
     <div className="results-view">
       <h1 className="results-view__title">CRAPS</h1>
 
       <div className="results-view__score-row">
-        <ScoreTile label="No. of wins" value={DISPLAY.wins} variant={WINS} />
+        <ScoreTile label="No. of wins" value={display.wins} variant={WINS} />
         <ScoreTile
           label="No. of losses"
-          value={DISPLAY.losses}
+          value={display.losses}
           variant={LOSSES}
         />
       </div>
 
       <div className="results-view__stats-grid">
-        <StatTile label="Avg. rolls" value={DISPLAY.avgRolls} />
-        <StatTile label="Highest rolls" value={DISPLAY.highestRolls} />
-        <StatTile label="Lowest rolls" value={DISPLAY.lowestRolls} />
-        <StatTile label="Most common roll" value={DISPLAY.mostCommonRoll} />
-        <StatTile label="Win rate" value={`${DISPLAY.avgWinPct}%`} />
+        <StatTile label="Avg. rolls" value={display.avgRolls} />
+        <StatTile label="Highest rolls" value={display.highestRolls} />
+        <StatTile label="Lowest rolls" value={display.lowestRolls} />
+        <StatTile label="Most common roll" value={display.mostCommonRoll} />
+        <StatTile label="Win rate" value={`${display.winRate}%`} />
       </div>
 
       <button
