@@ -1,0 +1,97 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`test GameCard.tsx > should match the snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="game-card"
+  >
+    <button
+      aria-label="How to play"
+      class="game-card__info-button"
+      title="How to play"
+      type="button"
+    >
+      <svg
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g
+          id="Circle_Info"
+        >
+          <g>
+            <g>
+              <path
+                d="M11.5,15a.5.5,0,0,0,1,0h0V10.981a.5.5,0,0,0-1,0Z"
+              />
+              <circle
+                cx="12"
+                cy="8.999"
+                r="0.5"
+              />
+            </g>
+            <path
+              d="M12,2.065A9.934,9.934,0,1,1,2.066,12,9.945,9.945,0,0,1,12,2.065Zm0,18.867A8.934,8.934,0,1,0,3.066,12,8.944,8.944,0,0,0,12,20.932Z"
+            />
+          </g>
+        </g>
+      </svg>
+    </button>
+    <div
+      class="game-card__content"
+    >
+      <div
+        class=""
+      >
+        <form
+          class="setup-view"
+        >
+          <h1
+            class="setup-view__title"
+          >
+            CRAPS
+          </h1>
+          <p
+            class="setup-view__subtitle"
+          >
+            Choose no. of rounds
+          </p>
+          <div
+            class="setup-view__stepper"
+          >
+            <button
+              aria-label="Decrease rounds"
+              class="setup-view__step-btn"
+              type="button"
+            >
+              −
+            </button>
+            <span
+              class="setup-view__count"
+            >
+              5
+            </span>
+            <button
+              aria-label="Increase rounds"
+              class="setup-view__step-btn"
+              type="button"
+            >
+              +
+            </button>
+          </div>
+          <button
+            class="primary-button setup-view__continue"
+            type="submit"
+          >
+            START
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;
