@@ -29,3 +29,29 @@ export const evaluatePointRoll = (
   if (sum === 7) return { outcome: OUTCOME_SEVEN_OUT, sum };
   return { outcome: OUTCOME_CONTINUE, sum };
 };
+
+export const calcAvgRolls = (rollsPerGame: number[]): number => {
+  if (rollsPerGame.length === 0) return 0;
+  const total = rollsPerGame.reduce((acc, n) => acc + n, 0);
+  return Math.round((total / rollsPerGame.length) * 10) / 10;
+};
+
+export const calcHighestRolls = (rollsPerGame: number[]): number =>
+  rollsPerGame.length === 0 ? 0 : Math.max(...rollsPerGame);
+
+export const calcLowestRolls = (rollsPerGame: number[]): number =>
+  rollsPerGame.length === 0 ? 0 : Math.min(...rollsPerGame);
+
+export const calcMostCommonRoll = (allRolls: number[]): number => {
+  if (allRolls.length === 0) return 0;
+  const counts = allRolls.reduce<Record<number, number>>((acc, n) => {
+    acc[n] = (acc[n] ?? 0) + 1;
+    return acc;
+  }, {});
+  return Number(Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0]);
+};
+
+export const calcWinRate = (wins: number, totalGames: number): number => {
+  if (totalGames === 0) return 0;
+  return Math.round((wins / totalGames) * 100);
+};
