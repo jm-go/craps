@@ -23,13 +23,13 @@ export const ResultsView = ({ onPlayAgain }: ResultsViewProps) => {
       <h1 className="results-view__title">CRAPS</h1>
 
       <div className="results-view__score-row">
-        <div className="results-view__score-tile results-view__score-tile--losses">
-          <span className="results-view__score-label">No. of losses</span>
-          <span className="results-view__score-value">{DISPLAY.losses}</span>
-        </div>
         <div className="results-view__score-tile results-view__score-tile--wins">
           <span className="results-view__score-label">No. of wins</span>
           <span className="results-view__score-value">{DISPLAY.wins}</span>
+        </div>
+        <div className="results-view__score-tile results-view__score-tile--losses">
+          <span className="results-view__score-label">No. of losses</span>
+          <span className="results-view__score-value">{DISPLAY.losses}</span>
         </div>
       </div>
 
