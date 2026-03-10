@@ -92,6 +92,17 @@
   width: min(100%, 14rem);
 }
 
+.play-view__badge-area {
+  height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-view__sum--hidden {
+  visibility: hidden;
+}
+
 .play-view__sum {
   margin: 0;
   font-size: 1rem;

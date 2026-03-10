@@ -131,17 +131,18 @@ export const PlayView = ({ totalGames, onFinish }: PlayViewProps) => {
         <span className="play-view__rounds-count">{roundsLeft}</span>
       </p>
 
-      {phase === 'point' && (
-        <div className="play-view__point-badge">
-          Point: <strong>{point}</strong> — roll to match or 7 out
-        </div>
-      )}
-
-      {phase === 'game-over' && (
-        <div className={`play-view__result play-view__result--${lastResult}`}>
-          {lastResult === 'won' ? 'WIN' : 'LOSE'}
-        </div>
-      )}
+      <div className="play-view__badge-area">
+        {phase === 'point' && (
+          <div className="play-view__point-badge">
+            Point: <strong>{point}</strong> — roll to match or 7 out
+          </div>
+        )}
+        {phase === 'game-over' && (
+          <div className={`play-view__result play-view__result--${lastResult}`}>
+            {lastResult === 'won' ? 'WIN' : 'LOSE'}
+          </div>
+        )}
+      </div>
 
       <div className={`play-view__dice${isRolling ? ' play-view__dice--rolling' : ''}`}>
         <img
@@ -159,6 +160,10 @@ export const PlayView = ({ totalGames, onFinish }: PlayViewProps) => {
           height={90}
         />
       </div>
+
+      <p className={`play-view__sum${sum === null ? ' play-view__sum--hidden' : ''}`}>
+        Sum <span className="play-view__sum-value">{sum ?? ''}</span>
+      </p>
 
       {phase !== 'game-over' ? (
         <button
@@ -179,11 +184,6 @@ export const PlayView = ({ totalGames, onFinish }: PlayViewProps) => {
         </button>
       )}
 
-      {sum !== null && (
-        <p className="play-view__sum">
-          Sum <span className="play-view__sum-value">{sum}</span>
-        </p>
-      )}
     </div>
   )
 }
