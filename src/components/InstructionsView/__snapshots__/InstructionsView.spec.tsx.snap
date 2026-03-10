@@ -1,0 +1,113 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`test InstructionsView.tsx > should match the snapshot 1`] = `
+<DocumentFragment>
+  <h1
+    class="instructions-view__title"
+  >
+    CRAPS
+  </h1>
+  <p
+    class="instructions-view__subtitle"
+  >
+    How to play
+  </p>
+  <div
+    class="instructions-view__rules"
+  >
+    <div
+      class="instructions-view__rule-tile"
+    >
+      <span
+        class="instructions-view__rule-step"
+      >
+        Come-out roll
+      </span>
+      <p
+        class="instructions-view__rule-text"
+      >
+        Roll two dice to start each game.
+      </p>
+    </div>
+    <div
+      class="instructions-view__rule-tile"
+    >
+      <span
+        class="instructions-view__rule-step"
+      >
+        Instant result
+      </span>
+      <p
+        class="instructions-view__rule-text"
+      >
+        Roll 
+        <strong>
+          7
+        </strong>
+         or 
+        <strong>
+          11
+        </strong>
+         → 
+        <span
+          class="instructions-view__chip instructions-view__chip--win"
+        >
+          WIN
+        </span>
+        ,  roll 
+        <strong>
+          2
+        </strong>
+        , 
+        <strong>
+          3
+        </strong>
+         or 
+        <strong>
+          12
+        </strong>
+         → 
+        <span
+          class="instructions-view__chip instructions-view__chip--lose"
+        >
+          LOSE
+        </span>
+      </p>
+    </div>
+    <div
+      class="instructions-view__rule-tile"
+    >
+      <span
+        class="instructions-view__rule-step"
+      >
+        Point phase
+      </span>
+      <p
+        class="instructions-view__rule-text"
+      >
+        Any other number sets the 
+        <strong>
+          point
+        </strong>
+        . Keep rolling — match it to 
+        <span
+          class="instructions-view__chip instructions-view__chip--win"
+        >
+          WIN
+        </span>
+        , roll a 
+        <strong>
+          7
+        </strong>
+         to 
+        <span
+          class="instructions-view__chip instructions-view__chip--lose"
+        >
+          LOSE
+        </span>
+        .
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
