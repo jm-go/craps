@@ -3,6 +3,7 @@ import { CiCircleInfo } from 'react-icons/ci'
 import { SetupView } from './SetupView'
 import { PlayView } from './PlayView'
 import { ResultsView } from './ResultsView'
+import { InstructionsView } from './InstructionsView'
 import type { GameStats } from '../types/types'
 import './GameCard.css'
 
@@ -66,39 +67,7 @@ export const GameCard = () => {
 
       <div className="game-card__content">
         {isInstructionsOpen ? (
-          <>
-            <h1 className="game-card__instructions-title">CRAPS</h1>
-            <p className="game-card__instructions-subtitle">How to play</p>
-
-            <div className="game-card__instructions">
-              <div className="game-card__rule-tile">
-                <span className="game-card__rule-step">Come-out roll</span>
-                <p className="game-card__rule-text">
-                  Roll two dice to start each game.
-                </p>
-              </div>
-
-              <div className="game-card__rule-tile">
-                <span className="game-card__rule-step">Instant result</span>
-                <p className="game-card__rule-text">
-                  Roll <strong>7</strong> or <strong>11</strong> →{' '}
-                  <span className="game-card__chip game-card__chip--win">WIN</span>
-                  {',  '}roll <strong>2</strong>, <strong>3</strong> or <strong>12</strong> →{' '}
-                  <span className="game-card__chip game-card__chip--lose">LOSE</span>
-                </p>
-              </div>
-
-              <div className="game-card__rule-tile">
-                <span className="game-card__rule-step">Point phase</span>
-                <p className="game-card__rule-text">
-                  Any other number sets the <strong>point</strong>. Keep rolling — match it to{' '}
-                  <span className="game-card__chip game-card__chip--win">WIN</span>
-                  , roll a <strong>7</strong> to{' '}
-                  <span className="game-card__chip game-card__chip--lose">LOSE</span>.
-                </p>
-              </div>
-            </div>
-          </>
+          <InstructionsView />
         ) : (
           <>
             {screenView === SCREEN_VIEW.SETUP && <SetupView onStart={handleStart} />}
