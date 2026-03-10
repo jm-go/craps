@@ -2,10 +2,11 @@ import { useState } from 'react'
 import { CiCircleInfo } from 'react-icons/ci'
 import { SetupView } from './SetupView'
 import { PlayView } from './PlayView'
+import { ResultsView } from './ResultsView'
 import type { GameStats } from '../types/types'
 import './GameCard.css'
 
-type ScreenView = 'setup' | 'play'
+type ScreenView = 'setup' | 'play' | 'results'
 type OverlayView = 'closed' | 'instructions'
 
 const INFO_LABEL = 'How to play'
@@ -14,6 +15,7 @@ export const GameCard = () => {
   const [screenView, setScreenView] = useState<ScreenView>('setup')
   const [overlayView, setOverlayView] = useState<OverlayView>('closed')
   const [gameCount, setGameCount] = useState(5)
+  const [finalStats, setFinalStats] = useState<GameStats | null>(null)
 
   const toggleInstructions = () => {
     setOverlayView((prevView) =>
@@ -27,9 +29,14 @@ export const GameCard = () => {
     setScreenView('play')
   }
 
-  const handleFinish = (_stats: GameStats) => {
-    // TODO: navigate to ResultsView with _stats
-    console.log('Simulation complete:', _stats)
+  const handleFinish = (stats: GameStats) => {
+    setFinalStats(stats)
+    setScreenView('results')
+  }
+
+  const handlePlayAgain = () => {
+    setFinalStats(null)
+    setScreenView('setup')
   }
 
   const isInstructionsOpen = overlayView === 'instructions'
@@ -72,6 +79,7 @@ export const GameCard = () => {
           <>
             {screenView === 'setup' && <SetupView onStart={handleStart} />}
             {screenView === 'play' && <PlayView totalGames={gameCount} onFinish={handleFinish} />}
+            {screenView === 'results' && finalStats && <ResultsView stats={finalStats} onPlayAgain={handlePlayAgain} />}
           </>
         )}
       </div>
