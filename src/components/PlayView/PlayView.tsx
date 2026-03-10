@@ -21,6 +21,91 @@ const DICE_IMAGES = [
   dice6Img,
 ];
 
+type DieProps = {
+  value: number | null;
+  fallbackIndex: number;
+};
+
+const Die = ({ value, fallbackIndex }: DieProps) => (
+  <img
+    src={DICE_IMAGES[(value ?? fallbackIndex + 1) - 1]}
+    alt={value !== null ? `Die showing ${value}` : "Die placeholder"}
+    className={`play-view__die${value === null ? " play-view__die--idle" : ""}`}
+    width={90}
+    height={90}
+  />
+);
+
+type DicePairProps = {
+  die1: number | null;
+  die2: number | null;
+  isRolling: boolean;
+};
+
+const DicePair = ({ die1, die2, isRolling }: DicePairProps) => (
+  <div
+    className={`play-view__dice${isRolling ? " play-view__dice--rolling" : ""}`}
+  >
+    <Die value={die1} fallbackIndex={0} />
+    <Die value={die2} fallbackIndex={2} />
+  </div>
+);
+
+type PhaseBadgeProps = {
+  phase: string;
+  point: number | null;
+  lastResult: string | null;
+};
+
+const PhaseBadge = ({ phase, point, lastResult }: PhaseBadgeProps) => (
+  <div className="play-view__badge-area">
+    {phase === PHASE_POINT && (
+      <div className="play-view__point-badge">
+        Point: <strong>{point}</strong> — roll to match or 7 out
+      </div>
+    )}
+    {phase === PHASE_GAME_OVER && (
+      <div className={`play-view__result play-view__result--${lastResult}`}>
+        {lastResult === RESULT_WON ? "WIN" : "LOSE"}
+      </div>
+    )}
+  </div>
+);
+
+type ActionButtonProps = {
+  phase: string;
+  isRolling: boolean;
+  isLastGame: boolean;
+  onRoll: () => void;
+  onNext: () => void;
+};
+
+const ActionButton = ({
+  phase,
+  isRolling,
+  isLastGame,
+  onRoll,
+  onNext,
+}: ActionButtonProps) =>
+  phase !== PHASE_GAME_OVER ? (
+    <button
+      type="button"
+      className="primary-button play-view__action-button"
+      onClick={onRoll}
+      disabled={isRolling}
+    >
+      ROLL
+    </button>
+  ) : (
+    <button
+      type="button"
+      className="primary-button play-view__action-button"
+      onClick={onNext}
+    >
+      {isLastGame ? "SEE RESULTS" : "NEXT GAME"}
+    </button>
+  );
+
 type PlayViewProps = {
   totalGames: number;
   onFinish: (stats: GameStats) => void;
@@ -51,9 +136,6 @@ export const PlayView = ({ totalGames, onFinish }: PlayViewProps) => {
 
   const sum = die1 !== null && die2 !== null ? die1 + die2 : null;
 
-  const dieImage = (value: number | null, fallbackIndex: number) =>
-    DICE_IMAGES[(value ?? fallbackIndex + 1) - 1];
-
   return (
     <div className="play-view">
       <h1 className="play-view__title">CRAPS</h1>
@@ -63,37 +145,9 @@ export const PlayView = ({ totalGames, onFinish }: PlayViewProps) => {
         <span className="play-view__rounds-count">{roundsLeft}</span>
       </p>
 
-      <div className="play-view__badge-area">
-        {phase === PHASE_POINT && (
-          <div className="play-view__point-badge">
-            Point: <strong>{point}</strong> — roll to match or 7 out
-          </div>
-        )}
-        {phase === PHASE_GAME_OVER && (
-          <div className={`play-view__result play-view__result--${lastResult}`}>
-            {lastResult === RESULT_WON ? "WIN" : "LOSE"}
-          </div>
-        )}
-      </div>
+      <PhaseBadge phase={phase} point={point} lastResult={lastResult} />
 
-      <div
-        className={`play-view__dice${isRolling ? " play-view__dice--rolling" : ""}`}
-      >
-        <img
-          src={dieImage(die1, 0)}
-          alt={die1 !== null ? `Die showing ${die1}` : "Die placeholder"}
-          className={`play-view__die${die1 === null ? " play-view__die--idle" : ""}`}
-          width={90}
-          height={90}
-        />
-        <img
-          src={dieImage(die2, 2)}
-          alt={die2 !== null ? `Die showing ${die2}` : "Die placeholder"}
-          className={`play-view__die${die2 === null ? " play-view__die--idle" : ""}`}
-          width={90}
-          height={90}
-        />
-      </div>
+      <DicePair die1={die1} die2={die2} isRolling={isRolling} />
 
       <p
         className={`play-view__sum${sum === null ? " play-view__sum--hidden" : ""}`}
@@ -101,24 +155,13 @@ export const PlayView = ({ totalGames, onFinish }: PlayViewProps) => {
         Sum <span className="play-view__sum-value">{sum ?? ""}</span>
       </p>
 
-      {phase !== PHASE_GAME_OVER ? (
-        <button
-          type="button"
-          className="primary-button play-view__action-button"
-          onClick={handleRoll}
-          disabled={isRolling}
-        >
-          ROLL
-        </button>
-      ) : (
-        <button
-          type="button"
-          className="primary-button play-view__action-button"
-          onClick={nextGame}
-        >
-          {isLastGame ? "SEE RESULTS" : "NEXT GAME"}
-        </button>
-      )}
+      <ActionButton
+        phase={phase}
+        isRolling={isRolling}
+        isLastGame={isLastGame}
+        onRoll={handleRoll}
+        onNext={nextGame}
+      />
 
       {gameRolls.length > 0 && (
         <p className="play-view__roll-history">
