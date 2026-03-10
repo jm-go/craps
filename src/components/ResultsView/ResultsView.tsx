@@ -1,5 +1,5 @@
 import type { GameStats } from "../../types/types";
-import { calcSessionStats } from "../../game-logic/craps";
+import { calcSessionStats } from "../../game-logic/utils";
 import "./ResultsView.css";
 
 type ResultsViewProps = {

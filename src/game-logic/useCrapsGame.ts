@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { rollDice, evaluateComeOut, evaluatePointRoll } from "./craps";
+import { rollDice, evaluateComeOut, evaluatePointRoll } from "./utils";
 import {
   OUTCOME_NATURAL_WIN,
   OUTCOME_CRAPS_LOSS,
@@ -8,7 +8,7 @@ import {
   RESULT_WON,
   RESULT_LOST,
 } from "./constants";
-import type { ComeOutResult, PointRollResult } from "./craps";
+import type { ComeOutResult, PointRollResult } from "./utils";
 
 export const PHASE_READY = "ready";
 export const PHASE_POINT = "point";
