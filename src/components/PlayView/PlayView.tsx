@@ -121,7 +121,7 @@ export const PlayView = ({ totalGames, onFinish }: PlayViewProps) => {
     point,
     gameRolls,
     lastResult,
-    roundsLeft,
+    gamesLeft,
     isLastGame,
     roll,
     nextGame,
@@ -140,9 +140,10 @@ export const PlayView = ({ totalGames, onFinish }: PlayViewProps) => {
     <div className="play-view">
       <h1 className="play-view__title">CRAPS</h1>
 
-      <p className="play-view__rounds">
-        Rounds left{" "}
-        <span className="play-view__rounds-count">{roundsLeft}</span>
+      <p className="play-view__games">
+        Game{" "}
+        <span className="play-view__games-count">{totalGames - gamesLeft + 1}</span>
+        {" "}of {totalGames}
       </p>
 
       <PhaseBadge phase={phase} point={point} lastResult={lastResult} />

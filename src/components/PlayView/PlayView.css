@@ -15,17 +15,15 @@
   color: var(--color-text-primary);
 }
 
-.play-view__rounds {
+.play-view__games {
   margin: 0;
   font-size: 1rem;
   color: var(--color-text-secondary);
 }
 
-.play-view__rounds-count {
-  font-size: 1.4rem;
+.play-view__games-count {
   font-weight: 700;
   color: var(--color-text-primary);
-  margin-left: 0.25rem;
 }
 
 .play-view__point-badge {

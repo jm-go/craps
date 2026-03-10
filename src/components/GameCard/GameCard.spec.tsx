@@ -11,7 +11,7 @@ describe("test GameCard.tsx", () => {
   it("should show SetupView on initial render", () => {
     render(<GameCard />);
     expect(screen.getByRole("button", { name: /start/i })).toBeInTheDocument();
-    expect(screen.getByText(/choose no\. of rounds/i)).toBeInTheDocument();
+    expect(screen.getByText(/choose no\. of games/i)).toBeInTheDocument();
   });
 
   it("should toggle instructions overlay on info button click", async () => {

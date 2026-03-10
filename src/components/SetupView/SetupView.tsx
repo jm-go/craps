@@ -6,7 +6,7 @@ type SetupViewProps = {
 };
 
 const GAME_TITLE = "CRAPS";
-const SETUP_SUBTITLE = "Choose no. of rounds";
+const SETUP_SUBTITLE = "Choose no. of games";
 const START_BUTTON = "START";
 const MIN_GAMES = 1;
 const MAX_GAMES = 15;

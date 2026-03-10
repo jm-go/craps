@@ -58,7 +58,7 @@ exports[`test GameCard.tsx > should match the snapshot 1`] = `
           <p
             class="setup-view__subtitle"
           >
-            Choose no. of rounds
+            Choose no. of games
           </p>
           <div
             class="setup-view__stepper"
