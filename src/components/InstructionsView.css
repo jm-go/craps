@@ -1,0 +1,71 @@
+.instructions-view__title {
+  margin: 0;
+  font-size: clamp(2.2rem, 6vw, 3.2rem);
+  line-height: 1;
+  letter-spacing: 0.08em;
+  font-weight: 900;
+  color: var(--color-text-primary);
+}
+
+.instructions-view__subtitle {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+}
+
+.instructions-view__rules {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 100%;
+}
+
+.instructions-view__rule-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 0.85rem;
+  background: var(--color-input-bg);
+  border: 1px solid var(--color-border-soft);
+  box-shadow:
+    0 2px 6px var(--shadow-color-faint),
+    0 4px 12px var(--shadow-color-soft);
+  text-align: left;
+}
+
+.instructions-view__rule-step {
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+}
+
+.instructions-view__rule-text {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--color-text-body);
+}
+
+.instructions-view__chip {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  vertical-align: middle;
+}
+
+.instructions-view__chip--win {
+  color: var(--color-win);
+  background: var(--color-win-bg);
+}
+
+.instructions-view__chip--lose {
+  color: var(--color-lose);
+  background: var(--color-lose-bg);
+}
