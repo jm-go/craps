@@ -1,5 +1,5 @@
 import type { GameStats } from "../../types/types";
-import { useCrapsStats } from "../../game-logic/useCrapsStats";
+import { calcSessionStats } from "../../game-logic/craps";
 import "./ResultsView.css";
 
 type ResultsViewProps = {
@@ -39,7 +39,7 @@ const StatTile = ({ label, value }: StatTileProps) => (
 );
 
 export const ResultsView = ({ stats, onPlayAgain }: ResultsViewProps) => {
-  const display = useCrapsStats(stats);
+  const display = calcSessionStats(stats);
   return (
     <div className="results-view">
       <h1 className="results-view__title">CRAPS</h1>

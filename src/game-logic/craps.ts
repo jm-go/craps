@@ -1,4 +1,5 @@
 import { OUTCOME_NATURAL_WIN, OUTCOME_CRAPS_LOSS, OUTCOME_POINT_SET, OUTCOME_POINT_WIN, OUTCOME_SEVEN_OUT, OUTCOME_CONTINUE } from './constants'
+import type { GameStats } from '../types/types'
 
 export const rollDie = (): number => Math.floor(Math.random() * 6) + 1;
 
@@ -54,4 +55,17 @@ export const calcMostCommonRoll = (allRolls: number[]): number => {
 export const calcWinRate = (wins: number, totalGames: number): number => {
   if (totalGames === 0) return 0;
   return Math.round((wins / totalGames) * 100);
+};
+
+export const calcSessionStats = (stats: GameStats) => {
+  const totalGames = stats.wins + stats.losses
+  return {
+    wins: stats.wins,
+    losses: stats.losses,
+    avgRolls: calcAvgRolls(stats.rollsPerGame),
+    highestRolls: calcHighestRolls(stats.rollsPerGame),
+    lowestRolls: calcLowestRolls(stats.rollsPerGame),
+    mostCommonRoll: calcMostCommonRoll(stats.allRolls),
+    winRate: calcWinRate(stats.wins, totalGames),
+  }
 };
