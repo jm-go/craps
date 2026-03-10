@@ -1,27 +1,27 @@
-import { useState } from 'react'
-import './SetupView.css'
+import { useState } from "react";
+import "./SetupView.css";
 
 type SetupViewProps = {
-  onStart: (gameCount: number) => void
-}
+  onStart: (gameCount: number) => void;
+};
 
-const GAME_TITLE = 'CRAPS'
-const SETUP_SUBTITLE = 'Choose no. of rounds'
-const CONTINUE_BUTTON_TEXT = 'START'
-const MIN_GAMES = 1
-const MAX_GAMES = 15
-const DEFAULT_GAME_COUNT = 5
+const GAME_TITLE = "CRAPS";
+const SETUP_SUBTITLE = "Choose no. of rounds";
+const START_BUTTON = "START";
+const MIN_GAMES = 1;
+const MAX_GAMES = 15;
+const DEFAULT_GAME_COUNT = 5;
 
 export const SetupView = ({ onStart }: SetupViewProps) => {
-  const [count, setCount] = useState(DEFAULT_GAME_COUNT)
+  const [count, setCount] = useState(DEFAULT_GAME_COUNT);
 
-  const decrement = () => setCount(prev => Math.max(MIN_GAMES, prev - 1))
-  const increment = () => setCount(prev => Math.min(MAX_GAMES, prev + 1))
+  const decrement = () => setCount((prev) => Math.max(MIN_GAMES, prev - 1));
+  const increment = () => setCount((prev) => Math.min(MAX_GAMES, prev + 1));
 
   const handleSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    onStart(count)
-  }
+    event.preventDefault();
+    onStart(count);
+  };
 
   return (
     <form className="setup-view" onSubmit={handleSubmit}>
@@ -54,8 +54,8 @@ export const SetupView = ({ onStart }: SetupViewProps) => {
       </div>
 
       <button type="submit" className="primary-button setup-view__continue">
-        {CONTINUE_BUTTON_TEXT}
+        {START_BUTTON}
       </button>
     </form>
-  )
-}
+  );
+};
