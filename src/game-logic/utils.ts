@@ -24,7 +24,7 @@ type KeepRolling = { outcome: "continue"; sum: number };
 export type ComeOutResult = NaturalWin | CrapsLoss | PointSet;
 export type PointRollResult = PointWin | SevenOut | KeepRolling;
 
-// Evaluates the come-out roll (first roll of a game)
+// Evaluates the come-out roll - first roll of a game
 export const evaluateComeOut = (sum: number): ComeOutResult => {
   if (sum === 7 || sum === 11) return { outcome: OUTCOME_NATURAL_WIN, sum };
   if (sum === 2 || sum === 3 || sum === 12)

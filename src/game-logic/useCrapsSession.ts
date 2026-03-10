@@ -88,7 +88,7 @@ export const useCrapsSession = ({
     point: game.point,
     gameRolls: game.gameRolls,
     lastResult: game.lastResult,
-    roundsLeft: totalGames - currentGame + 1,
+    gamesLeft: totalGames - currentGame + 1,
     isLastGame: currentGame >= totalGames,
     roll,
     nextGame,
