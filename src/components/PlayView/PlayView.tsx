@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useCrapsSession } from "../../game-logic/useCrapsSession";
 import { PHASE_POINT, PHASE_GAME_OVER } from "../../game-logic/useCrapsGame";
+import { RESULT_WON } from "../../game-logic/constants";
 import type { GameStats } from "../../types/types";
 import "./PlayView.css";
 
@@ -70,7 +71,7 @@ export const PlayView = ({ totalGames, onFinish }: PlayViewProps) => {
         )}
         {phase === PHASE_GAME_OVER && (
           <div className={`play-view__result play-view__result--${lastResult}`}>
-            {lastResult === "won" ? "WIN" : "LOSE"}
+            {lastResult === RESULT_WON ? "WIN" : "LOSE"}
           </div>
         )}
       </div>
