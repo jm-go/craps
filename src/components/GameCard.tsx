@@ -72,7 +72,7 @@ export const GameCard = () => {
                 <p className="game-card__rule-text">
                   Roll <strong>7</strong> or <strong>11</strong> →{' '}
                   <span className="game-card__chip game-card__chip--win">WIN</span>
-                  {'  '}Roll <strong>2</strong>, <strong>3</strong> or <strong>12</strong> →{' '}
+                  {',  '}roll <strong>2</strong>, <strong>3</strong> or <strong>12</strong> →{' '}
                   <span className="game-card__chip game-card__chip--lose">LOSE</span>
                 </p>
               </div>
