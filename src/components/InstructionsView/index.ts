@@ -1,1 +1,1 @@
-export { InstructionsView } from './InstructionsView'
+export { InstructionsView } from "./InstructionsView";

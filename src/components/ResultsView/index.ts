@@ -1,1 +1,1 @@
-export { ResultsView } from './ResultsView'
+export { ResultsView } from "./ResultsView";

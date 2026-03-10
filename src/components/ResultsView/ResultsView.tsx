@@ -1,10 +1,10 @@
-import type { GameStats } from '../../types/types'
-import './ResultsView.css'
+import type { GameStats } from "../../types/types";
+import "./ResultsView.css";
 
 type ResultsViewProps = {
-  stats: GameStats
-  onPlayAgain: () => void
-}
+  stats: GameStats;
+  onPlayAgain: () => void;
+};
 
 // TODO: Replace all hardcoded values below with values derived from `stats`
 const DISPLAY = {
@@ -15,36 +15,38 @@ const DISPLAY = {
   lowestRolls: 1,
   mostCommonRoll: 7,
   avgWinPct: 60,
-}
+};
 
-const WINS = 'wins'
-const LOSSES = 'losses'
-type ScoreVariant = typeof WINS | typeof LOSSES
+const WINS = "wins";
+const LOSSES = "losses";
+type ScoreVariant = typeof WINS | typeof LOSSES;
 
 type ScoreTileProps = {
-  label: string
-  value: number
-  variant: ScoreVariant
-}
+  label: string;
+  value: number;
+  variant: ScoreVariant;
+};
 
 type StatTileProps = {
-  label: string
-  value: number | string
-}
+  label: string;
+  value: number | string;
+};
 
 const ScoreTile = ({ label, value, variant }: ScoreTileProps) => (
-  <div className={`results-view__score-tile results-view__score-tile--${variant}`}>
+  <div
+    className={`results-view__score-tile results-view__score-tile--${variant}`}
+  >
     <span className="results-view__score-label">{label}</span>
     <span className="results-view__score-value">{value}</span>
   </div>
-)
+);
 
 const StatTile = ({ label, value }: StatTileProps) => (
   <div className="results-view__stat-tile">
     <span className="results-view__stat-label">{label}</span>
     <span className="results-view__stat-value">{value}</span>
   </div>
-)
+);
 
 export const ResultsView = ({ onPlayAgain }: ResultsViewProps) => {
   return (
@@ -53,7 +55,11 @@ export const ResultsView = ({ onPlayAgain }: ResultsViewProps) => {
 
       <div className="results-view__score-row">
         <ScoreTile label="No. of wins" value={DISPLAY.wins} variant={WINS} />
-        <ScoreTile label="No. of losses" value={DISPLAY.losses} variant={LOSSES} />
+        <ScoreTile
+          label="No. of losses"
+          value={DISPLAY.losses}
+          variant={LOSSES}
+        />
       </div>
 
       <div className="results-view__stats-grid">
@@ -72,5 +78,5 @@ export const ResultsView = ({ onPlayAgain }: ResultsViewProps) => {
         PLAY AGAIN
       </button>
     </div>
-  )
-}
+  );
+};

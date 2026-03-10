@@ -1,45 +1,45 @@
 :root {
   /* Background */
-  --color-bg-top:    #ffffff;
-  --color-bg-mid:    #eef5dc;
+  --color-bg-top: #ffffff;
+  --color-bg-mid: #eef5dc;
   --color-bg-bottom: #d9ff4d;
 
   /* Surfaces */
-  --color-card-bg:  rgba(255, 255, 255, 0.88);
+  --color-card-bg: rgba(255, 255, 255, 0.88);
   --color-input-bg: rgba(255, 255, 255, 0.95);
 
   /* Text */
-  --color-text-primary:   #1f1f1f;
+  --color-text-primary: #1f1f1f;
   --color-text-secondary: #4f4f4f;
-  --color-text-body:      #2f2f2f;
+  --color-text-body: #2f2f2f;
 
   /* Controls */
-  --color-button-bg:   #ffffff;
+  --color-button-bg: #ffffff;
   --color-button-text: #7a7a7a;
-  --color-accent:      #d9ff4d;
+  --color-accent: #d9ff4d;
 
   /* Borders */
   --color-border-soft: rgba(31, 31, 31, 0.15);
 
   /* Game states */
-  --color-win:  #2d7a2d;
+  --color-win: #2d7a2d;
   --color-win-bg: rgba(60, 180, 60, 0.15);
   --color-win-tile-light: #7ed87e;
-  --color-win-tile-dark:  #4ab84a;
+  --color-win-tile-dark: #4ab84a;
   --color-win-tile-shadow: rgba(40, 130, 40, 0.15);
-  --color-lose:   #8b2020;
+  --color-lose: #8b2020;
   --color-lose-bg: rgba(200, 60, 60, 0.12);
   --color-lose-tile-light: #f09090;
-  --color-lose-tile-dark:  #e06060;
+  --color-lose-tile-dark: #e06060;
   --color-lose-tile-shadow: rgba(180, 40, 40, 0.15);
   --color-tile-text: #ffffff;
-  --color-point-badge-bg:     rgba(217, 255, 77, 0.3);
+  --color-point-badge-bg: rgba(217, 255, 77, 0.3);
   --color-point-badge-border: rgba(180, 220, 40, 0.5);
 
   /* Shadow colours */
-  --shadow-color-faint:  rgba(0, 0, 0, 0.04);
-  --shadow-color-soft:   rgba(0, 0, 0, 0.06);
+  --shadow-color-faint: rgba(0, 0, 0, 0.04);
+  --shadow-color-soft: rgba(0, 0, 0, 0.06);
   --shadow-color-medium: rgba(0, 0, 0, 0.08);
   --shadow-color-strong: rgba(0, 0, 0, 0.12);
-  --shadow-color-card:   rgba(31, 31, 31, 0.08);
+  --shadow-color-card: rgba(31, 31, 31, 0.08);
 }
