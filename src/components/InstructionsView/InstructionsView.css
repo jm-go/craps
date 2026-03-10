@@ -1,5 +1,5 @@
 .instructions-view__title {
-  margin: 0;
+  margin: 0 0 1rem;
   font-size: clamp(2.2rem, 6vw, 3.2rem);
   line-height: 1;
   letter-spacing: 0.08em;
@@ -8,7 +8,7 @@
 }
 
 .instructions-view__subtitle {
-  margin: 0;
+  margin: 0 0 0.75rem;
   font-size: 1rem;
   letter-spacing: 0.06em;
   color: var(--color-text-secondary);
