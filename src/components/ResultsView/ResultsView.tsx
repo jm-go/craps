@@ -17,43 +17,51 @@ const DISPLAY = {
   avgWinPct: 60,
 }
 
+const WINS = 'wins'
+const LOSSES = 'losses'
+type ScoreVariant = typeof WINS | typeof LOSSES
+
+type ScoreTileProps = {
+  label: string
+  value: number
+  variant: ScoreVariant
+}
+
+type StatTileProps = {
+  label: string
+  value: number | string
+}
+
+const ScoreTile = ({ label, value, variant }: ScoreTileProps) => (
+  <div className={`results-view__score-tile results-view__score-tile--${variant}`}>
+    <span className="results-view__score-label">{label}</span>
+    <span className="results-view__score-value">{value}</span>
+  </div>
+)
+
+const StatTile = ({ label, value }: StatTileProps) => (
+  <div className="results-view__stat-tile">
+    <span className="results-view__stat-label">{label}</span>
+    <span className="results-view__stat-value">{value}</span>
+  </div>
+)
+
 export const ResultsView = ({ onPlayAgain }: ResultsViewProps) => {
   return (
     <div className="results-view">
       <h1 className="results-view__title">CRAPS</h1>
 
       <div className="results-view__score-row">
-        <div className="results-view__score-tile results-view__score-tile--wins">
-          <span className="results-view__score-label">No. of wins</span>
-          <span className="results-view__score-value">{DISPLAY.wins}</span>
-        </div>
-        <div className="results-view__score-tile results-view__score-tile--losses">
-          <span className="results-view__score-label">No. of losses</span>
-          <span className="results-view__score-value">{DISPLAY.losses}</span>
-        </div>
+        <ScoreTile label="No. of wins" value={DISPLAY.wins} variant={WINS} />
+        <ScoreTile label="No. of losses" value={DISPLAY.losses} variant={LOSSES} />
       </div>
 
       <div className="results-view__stats-grid">
-        <div className="results-view__stat-tile">
-          <span className="results-view__stat-label">Avg. rolls</span>
-          <span className="results-view__stat-value">{DISPLAY.avgRolls}</span>
-        </div>
-        <div className="results-view__stat-tile">
-          <span className="results-view__stat-label">Highest rolls</span>
-          <span className="results-view__stat-value">{DISPLAY.highestRolls}</span>
-        </div>
-        <div className="results-view__stat-tile">
-          <span className="results-view__stat-label">Lowest rolls</span>
-          <span className="results-view__stat-value">{DISPLAY.lowestRolls}</span>
-        </div>
-        <div className="results-view__stat-tile">
-          <span className="results-view__stat-label">Most common roll</span>
-          <span className="results-view__stat-value">{DISPLAY.mostCommonRoll}</span>
-        </div>
-        <div className="results-view__stat-tile">
-          <span className="results-view__stat-label">Win rate</span>
-          <span className="results-view__stat-value">{DISPLAY.avgWinPct}%</span>
-        </div>
+        <StatTile label="Avg. rolls" value={DISPLAY.avgRolls} />
+        <StatTile label="Highest rolls" value={DISPLAY.highestRolls} />
+        <StatTile label="Lowest rolls" value={DISPLAY.lowestRolls} />
+        <StatTile label="Most common roll" value={DISPLAY.mostCommonRoll} />
+        <StatTile label="Win rate" value={`${DISPLAY.avgWinPct}%`} />
       </div>
 
       <button

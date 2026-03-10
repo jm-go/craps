@@ -7,7 +7,7 @@ type SetupViewProps = {
 
 const GAME_TITLE = 'CRAPS'
 const SETUP_SUBTITLE = 'Choose no. of rounds'
-const CONTINUE_BUTTON_TEXT = 'START'
+const START_BUTTON = 'START'
 const MIN_GAMES = 1
 const MAX_GAMES = 15
 const DEFAULT_GAME_COUNT = 5
@@ -54,7 +54,7 @@ export const SetupView = ({ onStart }: SetupViewProps) => {
       </div>
 
       <button type="submit" className="primary-button setup-view__continue">
-        {CONTINUE_BUTTON_TEXT}
+        {START_BUTTON}
       </button>
     </form>
   )
