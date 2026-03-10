@@ -70,21 +70,22 @@ export const GameCard = () => {
       </button>
 
       <div className="game-card__content">
-        {isInstructionsOpen ? (
-          <InstructionsView />
-        ) : (
-          <>
-            {screenView === SCREEN_VIEW.SETUP && (
-              <SetupView onStart={handleStart} />
-            )}
-            {screenView === SCREEN_VIEW.PLAY && (
-              <PlayView totalGames={gameCount} onFinish={handleFinish} />
-            )}
-            {screenView === SCREEN_VIEW.RESULTS && finalStats && (
-              <ResultsView stats={finalStats} onPlayAgain={handlePlayAgain} />
-            )}
-          </>
+        {isInstructionsOpen && (
+          <div className="game-card__overlay">
+            <InstructionsView />
+          </div>
         )}
+        <div className={isInstructionsOpen ? "game-card__screens--hidden" : ""}>
+          {screenView === SCREEN_VIEW.SETUP && (
+            <SetupView onStart={handleStart} />
+          )}
+          {screenView === SCREEN_VIEW.PLAY && (
+            <PlayView totalGames={gameCount} onFinish={handleFinish} />
+          )}
+          {screenView === SCREEN_VIEW.RESULTS && finalStats && (
+            <ResultsView stats={finalStats} onPlayAgain={handlePlayAgain} />
+          )}
+        </div>
       </div>
     </section>
   );
