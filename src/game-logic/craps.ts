@@ -1,5 +1,12 @@
-import { OUTCOME_NATURAL_WIN, OUTCOME_CRAPS_LOSS, OUTCOME_POINT_SET, OUTCOME_POINT_WIN, OUTCOME_SEVEN_OUT, OUTCOME_CONTINUE } from './constants'
-import type { GameStats } from '../types/types'
+import {
+  OUTCOME_NATURAL_WIN,
+  OUTCOME_CRAPS_LOSS,
+  OUTCOME_POINT_SET,
+  OUTCOME_POINT_WIN,
+  OUTCOME_SEVEN_OUT,
+  OUTCOME_CONTINUE,
+} from "./constants";
+import type { GameStats } from "../types/types";
 
 export const rollDie = (): number => Math.floor(Math.random() * 6) + 1;
 
@@ -58,7 +65,7 @@ export const calcWinRate = (wins: number, totalGames: number): number => {
 };
 
 export const calcSessionStats = (stats: GameStats) => {
-  const totalGames = stats.wins + stats.losses
+  const totalGames = stats.wins + stats.losses;
   return {
     wins: stats.wins,
     losses: stats.losses,
@@ -67,5 +74,5 @@ export const calcSessionStats = (stats: GameStats) => {
     lowestRolls: calcLowestRolls(stats.rollsPerGame),
     mostCommonRoll: calcMostCommonRoll(stats.allRolls),
     winRate: calcWinRate(stats.wins, totalGames),
-  }
+  };
 };

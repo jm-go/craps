@@ -1,31 +1,44 @@
 import { useState } from "react";
 import { useCrapsGame } from "./useCrapsGame";
 import type { GameStats } from "../types/types";
-import { OUTCOME_NATURAL_WIN, OUTCOME_POINT_WIN, OUTCOME_CRAPS_LOSS, OUTCOME_SEVEN_OUT } from "./constants";
+import {
+  OUTCOME_NATURAL_WIN,
+  OUTCOME_POINT_WIN,
+  OUTCOME_CRAPS_LOSS,
+  OUTCOME_SEVEN_OUT,
+} from "./constants";
 
 type UseCrapsSessionProps = {
   totalGames: number;
   onFinish: (stats: GameStats) => void;
 };
 
-const addWin = (prev: GameStats, rollCount: number, sum: number): GameStats => ({
+const addWin = (
+  prev: GameStats,
+  rollCount: number,
+  sum: number,
+): GameStats => ({
   wins: prev.wins + 1,
   losses: prev.losses,
   rollsPerGame: [...prev.rollsPerGame, rollCount],
   allRolls: [...prev.allRolls, sum],
-})
+});
 
-const addLoss = (prev: GameStats, rollCount: number, sum: number): GameStats => ({
+const addLoss = (
+  prev: GameStats,
+  rollCount: number,
+  sum: number,
+): GameStats => ({
   wins: prev.wins,
   losses: prev.losses + 1,
   rollsPerGame: [...prev.rollsPerGame, rollCount],
   allRolls: [...prev.allRolls, sum],
-})
+});
 
 const addRoll = (prev: GameStats, sum: number): GameStats => ({
   ...prev,
   allRolls: [...prev.allRolls, sum],
-})
+});
 
 export const useCrapsSession = ({
   totalGames,
@@ -44,9 +57,15 @@ export const useCrapsSession = ({
   const roll = () => {
     const result = game.roll();
 
-    if (result.outcome === OUTCOME_NATURAL_WIN || result.outcome === OUTCOME_POINT_WIN) {
+    if (
+      result.outcome === OUTCOME_NATURAL_WIN ||
+      result.outcome === OUTCOME_POINT_WIN
+    ) {
       setStats((prev) => addWin(prev, result.rollCount, result.sum));
-    } else if (result.outcome === OUTCOME_CRAPS_LOSS || result.outcome === OUTCOME_SEVEN_OUT) {
+    } else if (
+      result.outcome === OUTCOME_CRAPS_LOSS ||
+      result.outcome === OUTCOME_SEVEN_OUT
+    ) {
       setStats((prev) => addLoss(prev, result.rollCount, result.sum));
     } else {
       setStats((prev) => addRoll(prev, result.sum));
