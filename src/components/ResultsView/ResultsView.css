@@ -30,25 +30,16 @@
   gap: 0.4rem;
   padding: 0.85rem 0.5rem;
   border-radius: 1rem;
-  color: var(--color-tile-text);
 }
 
 .results-view__score-tile--losses {
-  background: linear-gradient(
-    145deg,
-    var(--color-lose-tile-light),
-    var(--color-lose-tile-dark)
-  );
-  box-shadow: 0 4px 14px var(--color-lose-tile-shadow);
+  background: var(--color-lose-bg);
+  color: var(--color-lose);
 }
 
 .results-view__score-tile--wins {
-  background: linear-gradient(
-    145deg,
-    var(--color-win-tile-light),
-    var(--color-win-tile-dark)
-  );
-  box-shadow: 0 4px 14px var(--color-win-tile-shadow);
+  background: var(--color-win-bg);
+  color: var(--color-win);
 }
 
 .results-view__score-label {
