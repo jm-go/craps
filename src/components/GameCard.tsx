@@ -56,23 +56,36 @@ export const GameCard = () => {
       <div className="game-card__content">
         {isInstructionsOpen ? (
           <>
-            <h2 className="game-card__instructions-title">{INFO_LABEL}</h2>
+            <h1 className="game-card__instructions-title">CRAPS</h1>
+            <p className="game-card__instructions-subtitle">How to play</p>
 
             <div className="game-card__instructions">
-              <p>Each game starts with a come-out roll using two dice.</p>
+              <div className="game-card__rule-tile">
+                <span className="game-card__rule-step">Come-out roll</span>
+                <p className="game-card__rule-text">
+                  Roll two dice to start each game.
+                </p>
+              </div>
 
-              <p>
-                If the total is <strong>7</strong> or <strong>11</strong>, the
-                player wins immediately. If the total is <strong>2</strong>,{' '}
-                <strong>3</strong>, or <strong>12</strong>, the player loses
-                immediately.
-              </p>
+              <div className="game-card__rule-tile">
+                <span className="game-card__rule-step">Instant result</span>
+                <p className="game-card__rule-text">
+                  Roll <strong>7</strong> or <strong>11</strong> →{' '}
+                  <span className="game-card__chip game-card__chip--win">WIN</span>
+                  {'  '}Roll <strong>2</strong>, <strong>3</strong> or <strong>12</strong> →{' '}
+                  <span className="game-card__chip game-card__chip--lose">LOSE</span>
+                </p>
+              </div>
 
-              <p>
-                Any other total becomes the <strong>point</strong>. The player
-                continues rolling until they either roll the same point again to
-                win or roll a <strong>7</strong> to lose.
-              </p>
+              <div className="game-card__rule-tile">
+                <span className="game-card__rule-step">Point phase</span>
+                <p className="game-card__rule-text">
+                  Any other number sets the <strong>point</strong>. Keep rolling — match it to{' '}
+                  <span className="game-card__chip game-card__chip--win">WIN</span>
+                  , roll a <strong>7</strong> to{' '}
+                  <span className="game-card__chip game-card__chip--lose">LOSE</span>.
+                </p>
+              </div>
             </div>
           </>
         ) : (
